@@ -105,8 +105,7 @@
 		3DCAF01B162D9C520036D9BF /* magic.mgc */ = {isa = PBXFileReference; lastKnownFileType = file; path = magic.mgc; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* MagicKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB9B7DA81D774E5400CD7040 /* MagicKit-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "MagicKit-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB9B7DA91D774E5400CD7040 /* MagicKit-MacOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MagicKit-MacOS copy-Info.plist"; path = "/Users/kylekvech/src/MagicKit/MagicKit-MacOS copy-Info.plist"; sourceTree = "<absolute>"; };
+		BB9B7DA81D774E5400CD7040 /* MagicKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MagicKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9B7DAA1D774EA800CD7040 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		BB9B7DAC1D774EBD00CD7040 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		DD2BBE3C1262DBD3001B55D4 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -193,7 +192,7 @@
 			children = (
 				8DC2EF5B0486A6940098B216 /* MagicKit.framework */,
 				DDC92C0512619C1E0012DE28 /* MagicKitTest */,
-				BB9B7DA81D774E5400CD7040 /* MagicKit-iOS.framework */,
+				BB9B7DA81D774E5400CD7040 /* MagicKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,7 +206,6 @@
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				3DCAEFE4162D8BDE0036D9BF /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
-				BB9B7DA91D774E5400CD7040 /* MagicKit-MacOS copy-Info.plist */,
 			);
 			name = MagicKit;
 			sourceTree = "<group>";
@@ -435,7 +433,7 @@
 			name = "MagicKit-iOS";
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = MagicKit;
-			productReference = BB9B7DA81D774E5400CD7040 /* MagicKit-iOS.framework */;
+			productReference = BB9B7DA81D774E5400CD7040 /* MagicKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -444,7 +442,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0730;
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "MagicKit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -568,6 +566,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -578,6 +577,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "HAVE_CONFIG_H=1";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glassechidna.${PRODUCT_NAME:rfc1034Identifier}";
 				PRODUCT_NAME = MagicKit;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -589,6 +589,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -597,6 +598,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "HAVE_CONFIG_H=1";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glassechidna.${PRODUCT_NAME:rfc1034Identifier}";
 				PRODUCT_NAME = MagicKit;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -607,6 +609,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -671,6 +674,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -681,7 +685,8 @@
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "HAVE_CONFIG_H=1";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glassechidna.${PRODUCT_NAME:rfc1034Identifier}";
+				PRODUCT_NAME = MagicKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -694,6 +699,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -702,7 +708,8 @@
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "HAVE_CONFIG_H=1";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glassechidna.${PRODUCT_NAME:rfc1034Identifier}";
+				PRODUCT_NAME = MagicKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
